@@ -141,7 +141,13 @@ int bitXor(int x, int y) {
  *   Rating: 1
  */
 int thirdBits(void) {
-  return 2;
+  int x = 1;
+  int i;
+  for (i = 1 ; i<=10 ; i++) {
+	  x = (x << 3) + 1;
+  }
+  return x;
+  
 }
 // Rating: 2
 /* 
@@ -235,3 +241,5 @@ int conditional(int x, int y, int z) {
 int isPower2(int x) {
   return 2;
 }
+
+
