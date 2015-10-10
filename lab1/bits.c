@@ -160,7 +160,7 @@ int thirdBits(void) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
-  return 2;
+  return (x >> (n-1)) > 0 ? 0 : 1;
 }
 /* 
  * sign - return 1 if positive, 0 if zero, and -1 if negative
@@ -171,7 +171,8 @@ int fitsBits(int x, int n) {
  *  Rating: 2
  */
 int sign(int x) {
-  return 2;
+	return (x == 0) ? 0 : (((x >> 31) == 0) ? 1 : -1) ;
+	
 }
 /* 
  * getByte - Extract byte n from word x
@@ -182,7 +183,14 @@ int sign(int x) {
  *   Rating: 2
  */
 int getByte(int x, int n) {
-  return 2;
+  unsigned int mask = 0xF;
+  int shiftNo = n;
+  
+  while(n > 1) {
+	x >> 8;
+	n--;
+  }
+  return x & mask;
 }
 // Rating: 3
 /* 
