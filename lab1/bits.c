@@ -183,14 +183,8 @@ int sign(int x) {
  *   Rating: 2
  */
 int getByte(int x, int n) {
-  unsigned int mask = 0xF;
-  int shiftNo = n;
-  
-  while(n > 1) {
-	x >> 8;
-	n--;
-  }
-  return x & mask;
+	
+  return (x >> (n << 3)) & 0xFF;
 }
 // Rating: 3
 /* 
@@ -202,7 +196,7 @@ int getByte(int x, int n) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-  return 2;
+  return  x>> n;
 }
 /* 
  * addOK - Determine if can compute x+y without overflow
